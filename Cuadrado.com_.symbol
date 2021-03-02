@@ -1,0 +1,19 @@
+< THE SYMBOL TABLE >  Cuadrado.com_  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+DATA                     	00010     	-5        	SEGMENT   	(ITSELF)  
+NUM                      	00000     	1         	VAR       	DATA      
+NUM1                     	00001     	2         	VAR       	DATA      
+CODE                     	00011     	-5        	SEGMENT   	(ITSELF)  
+INICIO                   	00000     	-1        	LABEL     	CODE      
+REG                      	00018     	-1        	LABEL     	CODE      
+LADO                     	00023     	-1        	LABEL     	CODE      
+LADO1                    	00032     	-1        	LABEL     	CODE      
+LADO2                    	0003D     	-1        	LABEL     	CODE      
+COLOR                    	00049     	-1        	LABEL     	CODE      
+FIN                      	00050     	-1        	LABEL     	CODE      
+===================================================================================================
+[ 05/11/2020  --  11:19:41 a. m. ] 
+< END >
+ 

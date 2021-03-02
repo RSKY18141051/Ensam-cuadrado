@@ -1,0 +1,84 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+Cuadrado.com_ -- emu8086 assembler version: 4.08  
+ 
+[ 05/11/2020  --  11:19:41 a. m. ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       ; You may customize this and other start-up templates;
+[   2]        :                                       ; The location of this template is c:\emu8086\inc\0_com_template.txt
+[   3]        :                                       ; CUADRADO
+[   4]        :                                       
+[   5]        :                                       org 100h
+[   6]        :                                       
+[   7]        :                                       DATA SEGMENT
+[   8]        :                                       CONTAR EQU 100
+[   9]    0100: 00                                    NUM DB ?
+[  10]    0101: 00 00                                 NUM1 DW ?
+[  11]        :                                       DATA ENDS
+[  12]        :                                       
+[  13]        :                                       CODE SEGMENT
+[  14]        :                                       ASSUME CS:CODE, DS:DATA
+[  15]        :                                       
+[  16]    0110:                                       INICIO:
+[  17]        :                                       
+[  18]    0110: B8 12 00                              MOV AX,0012H  ;MODO GRAFICO
+[  19]    0113: CD 10                                 INT 10H
+[  20]        :                                       
+[  21]    0115: C6 06 00 00 28                        MOV NUM,40
+[  22]    011A: C7 06 01 00 2A 00                     MOV NUM1,42
+[  23]        :                                       
+[  24]    0120: 8A 0E 00 00                           MOV CL,NUM
+[  25]        :                                       
+[  26]    0124: 8B 16 01 00                           MOV DX,NUM1
+[  27]        :                                       
+[  28]    0128: 41                                    REG: INC CX
+[  29]    0129: E8 2D 00                              CALL COLOR
+[  30]    012C: 83 F9 64                              CMP CX,CONTAR
+[  31]    012F: 74 02                                 JE  LADO
+[  32]    0131: EB F5                                 JMP REG
+[  33]        :                                       
+[  34]    0133: 42                                    LADO: INC DX
+[  35]    0134: 8A 0E 00 00                           MOV CL,NUM
+[  36]    0138: E8 1E 00                              CALL COLOR
+[  37]    013B: 83 FA 52                              CMP DX,82
+[  38]    013E: 74 02                                 JE LADO1
+[  39]    0140: EB F1                                 JMP LADO
+[  40]        :                                       
+[  41]    0142: 41                                    LADO1: INC CX
+[  42]    0143: E8 13 00                              CALL COLOR
+[  43]    0146: 83 F9 64                              CMP CX,CONTAR
+[  44]    0149: 74 02                                 JE  LADO2
+[  45]    014B: EB F5                                 JMP LADO1
+[  46]        :                                       
+[  47]    014D: 4A                                    LADO2: DEC DX
+[  48]    014E: E8 08 00                              CALL COLOR
+[  49]    0151: 3A 16 00 00                           CMP DL,NUM
+[  50]    0155: 74 09                                 JE FIN
+[  51]    0157: EB F4                                 JMP LADO2
+[  52]        :                                       
+[  53]    0159: B4 0C                                 COLOR: MOV AH,0CH
+[  54]    015B: B0 09                                 MOV AL,09
+[  55]    015D: CD 10                                 INT 10H
+[  56]    015F: C3                                    RET
+[  57]        :                                       
+[  58]    0160: B4 07                                 FIN:MOV AH,07
+[  59]    0162: CD 21                                 INT 21H
+[  60]        :                                       
+[  61]        :                                       END INICIO
+[  62]        :                                       
+[  63]        :                                       CODE ENDS
+[  64]        :                                       
+[  65]        :                                       ret
+[  66]        :                                       
+ 
+===================================================================================================
+ 
+
+
+
+
+===================================================================================================
